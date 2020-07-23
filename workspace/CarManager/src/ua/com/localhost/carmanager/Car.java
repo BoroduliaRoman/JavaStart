@@ -1,12 +1,13 @@
 package ua.com.localhost.carmanager;
 
-public class Car {
+public abstract class Car implements Serviceable {
 	String name;
 	int yearOfProduction;
 	int price;
 	int weight;
 	Color color;
 	private int distance = 0;
+	protected int distanceOnService = 0;
 
 	public Car(String name, int yearOfProduction, int price, int weight, Color color) {
 		this.name = name;
@@ -19,15 +20,26 @@ public class Car {
 	@Override
 	public String toString() {
 		return "Car [name=" + name + ", yearOfProduction=" + yearOfProduction + ", price=" + price + ", weight="
-				+ weight + ", color=" + color + ", distance=" + distance + "]";
+				+ weight + ", color=" + color + ", distance=" + distance + ", distanceOnService=" + distanceOnService
+				+ "]";
 	}
 
 	public void addDistance(int additionalDistance) {
 		distance += additionalDistance;
+		distanceOnService += additionalDistance;
 	}
-	
+
 	public void addDistance(double additionalDistance) {
-		distance += additionalDistance ;
+		distance += additionalDistance;
+		distanceOnService += additionalDistance;
+	}
+
+	public void service() {
+		distanceOnService -= distanceOnService;
+	}
+
+	public int getDistanceOnService() {
+		return distanceOnService;
 	}
 
 	public int getDistance() {

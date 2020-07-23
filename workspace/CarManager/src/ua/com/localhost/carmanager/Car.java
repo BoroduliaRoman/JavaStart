@@ -14,7 +14,6 @@ public class Car {
 		this.price = price;
 		this.weight = weight;
 		this.color = color;
-		distance = 0;
 	}
 
 	@Override
@@ -25,6 +24,10 @@ public class Car {
 
 	public void addDistance(int additionalDistance) {
 		distance += additionalDistance;
+	}
+	
+	public void addDistance(double additionalDistance) {
+		distance += additionalDistance ;
 	}
 
 	public int getDistance() {
